@@ -1,5 +1,8 @@
+import React from "react";
+/* CSS */
 import "./Card.css";
 
+/* card component */
 function Card(props) {
   const classes = "card " + props.className;
 

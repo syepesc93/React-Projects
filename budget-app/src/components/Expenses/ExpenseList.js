@@ -1,9 +1,10 @@
+import React from "react";
 /* CSS */
 import "./ExpenseList.css";
 /* inner components */
 import ExpenseItem from "./ExpenseItem";
 /* wrapper components */
-import Card from "./Card";
+import Card from "../UI/Card";
 
 /* expense list component */
 function ExpenseList(props) {

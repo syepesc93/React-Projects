@@ -1,9 +1,10 @@
+import React from "react";
 /* CSS */
 import "./ExpenseItem.css";
 /* inner components */
 import ExpenseDate from "./ExpenseDate";
 /* wrapper components */
-import Card from "./Card";
+import Card from "../UI/Card";
 
 /* expense item component */
 function ExpenseItem(props) {
