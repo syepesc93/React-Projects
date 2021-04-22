@@ -32,7 +32,10 @@ const ExpenseForm = (props) => {
   const dateChangeHandler = (event) => {
     // setEnteredtDate(event.target.value);
     setUserInput((prevState) => {
-      return { ...prevState, enteredDate: event.target.value };
+      return {
+        ...prevState,
+        enteredDate: event.target.value,
+      };
     });
   };
 
@@ -41,16 +44,16 @@ const ExpenseForm = (props) => {
 
     // capture form info
     const expenseData = {
-      expenseTitle: userInput.enteredTitle,
-      expenseAmount: userInput.enteredAmount,
-      expenseDate: new Date(userInput.enteredDate),
+      title: userInput.enteredTitle,
+      amount: userInput.enteredAmount,
+      date: new Date(userInput.enteredDate),
     };
 
     // pass data to parent component (NewExpense)
     props.onSaveExpenseData(expenseData);
 
     // clear form
-    setUserInput((prevState) => {
+    setUserInput(() => {
       return {
         enteredTitle: "",
         enteredAmount: "",

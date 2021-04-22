@@ -11,6 +11,8 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
       id: Math.random().toString(), // this could generate repeated ids - must change id generator
     };
+
+    // pass data to parent component
     props.onAddExpense(expenseData);
   };
 
