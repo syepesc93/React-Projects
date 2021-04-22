@@ -1,36 +1,15 @@
-import React, { useState } from "react";
-/* CSS */
+import React from "react";
 import "./ExpenseList.css";
-/* inner components */
 import ExpenseItem from "./ExpenseItem";
-import ExpenseFilter from "./ExpenseFilter";
-/* wrapper components */
-import Card from "../UI/Card";
 
-/* expense list component */
 const ExpenseList = (props) => {
-  /* states */
-  const currentYear = new Date().getFullYear().toString();
-  const [filteredYear, setFilteredYear] = useState(currentYear);
+  if (props.expenses.length === 0) {
+    return <h2 className="expenses-list__fallback">Found no expenses</h2>;
+  }
 
-  /* event handlers */
-  const filterChangeHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
-
-  const filteredExpenses = props.expenses.filter((expense) => {
-    return expense.date.getFullYear().toString() === filteredYear;
-  });
-
-  /* JSX */
   return (
-    <Card className="expenses">
-      <ExpenseFilter
-        selectedYear={filteredYear}
-        onChangeFilter={filterChangeHandler}
-      />
-
-      {filteredExpenses.map((expense) => (
+    <ul className="expenses-list">
+      {props.expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
@@ -38,8 +17,7 @@ const ExpenseList = (props) => {
           date={expense.date}
         />
       ))}
-    </Card>
+    </ul>
   );
 };
-
 export default ExpenseList;
